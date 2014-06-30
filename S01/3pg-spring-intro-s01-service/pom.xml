@@ -4,15 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.3pg</groupId>
-        <artifactId>3pg-spring-intro</artifactId>
+        <artifactId>3pg-spring-intro-s01</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <name>${parent.module.name} Data access</name>
-    <artifactId>3pg-spring-intro-data-access</artifactId>
+    <name>${parent.module.name} Service</name>
+    <artifactId>3pg-spring-intro-s01-service</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.3pg</groupId>
+            <artifactId>3pg-spring-intro-s01-data-access</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -26,14 +32,21 @@
             </exclusions>
         </dependency>
 
+        <!-- Logging -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-core</artifactId>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
         </dependency>
 
         <dependency>

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.3pg</groupId>
-	<artifactId>3pg-spring-intro</artifactId>
+	<artifactId>3pg-spring-intro-s01</artifactId>
 	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
     <name>${parent.module.name} Parent project</name>
@@ -23,10 +23,8 @@
     </developers>
 
     <modules>
-        <module>3pg-spring-intro-data-access</module>
-        <module>3pg-spring-intro-service</module>
-        <module>3pg-spring-intro-presentation</module>
-        <module>3pg-spring-intro-webapp</module>
+        <module>3pg-spring-intro-s01-data-access</module>
+        <module>3pg-spring-intro-s01-service</module>
     </modules>
 
 	<properties>
@@ -36,13 +34,11 @@
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<tomcat.connection.pool.version>7.0.53</tomcat.connection.pool.version>
-
 		<org.springframework.version>4.0.5.RELEASE</org.springframework.version>
 
 		<org.slf4j.version>1.7.7</org.slf4j.version>
 
-		<hibernate.version>4.3.5.Final</hibernate.version>
+        <org.commons.lang.version>3.1</org.commons.lang.version>
 	</properties>
 
 	<dependencyManagement>
@@ -59,36 +55,6 @@
 						<artifactId>commons-logging</artifactId>
 					</exclusion>
 				</exclusions>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-webmvc</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-oxm</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-tx</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-jdbc</artifactId>
-				<version>${org.springframework.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-jms</artifactId>
-				<version>${org.springframework.version}</version>
 			</dependency>
 
 			<dependency>
@@ -130,86 +96,12 @@
 	            <version>1.1.2</version>
 	        </dependency>
 
-	        <!-- Hibernate -->
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-core</artifactId>
-				<version>${hibernate.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-entitymanager</artifactId>
-				<version>${hibernate.version}</version>
-			</dependency>
-
-			<!-- Tomcat JDBC connection pooling -->
-	        <dependency>
-	            <groupId>org.apache.tomcat</groupId>
-	            <artifactId>tomcat-jdbc</artifactId>
-	            <version>${tomcat.connection.pool.version}</version>
-	        </dependency>
-
-	        <dependency>
-	            <groupId>org.apache.tomcat</groupId>
-	            <artifactId>tomcat-juli</artifactId>
-	            <version>${tomcat.connection.pool.version}</version>
-	        </dependency>
-
-			<!-- JavaX servlet dependency - only needed for build purposes -->
-			<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>servlet-api</artifactId>
-				<version>3.0.1</version>
-				<scope>provided</scope>
-			</dependency>
-
-			<!-- H2 database -->
-	        <dependency>
-	            <groupId>com.h2database</groupId>
-	            <artifactId>h2</artifactId>
-	            <version>1.3.166</version>
-	        </dependency>
-
-	        <!-- Jackson JSON Mapper -->
-			<dependency>
-				<groupId>org.codehaus.jackson</groupId>
-				<artifactId>jackson-mapper-asl</artifactId>
-				<version>1.9.2</version>
-			</dependency>
-
-	        	<dependency>
-				<groupId>org.codehaus.jackson</groupId>
-				<artifactId>jackson-core-asl</artifactId>
-				<version>1.9.2</version>
-			</dependency>
-
 			<!-- Commons lang utilities -->
 	        <dependency>
 	            <groupId>org.apache.commons</groupId>
 	            <artifactId>commons-lang3</artifactId>
-	            <version>3.1</version>
-	        </dependency>
-
-	        <dependency>
-	            <groupId>net.sf.flexjson</groupId>
-	            <artifactId>flexjson</artifactId>
-	            <version>3.2</version>
-	        </dependency>
-
-	        <!-- Bean validation -->
-	        <dependency>
-	            <groupId>javax.validation</groupId>
-	            <artifactId>validation-api</artifactId>
-	            <version>1.1.0.Final</version>
-	        </dependency>
-
-	        <dependency>
-	            <groupId>org.hibernate</groupId>
-	            <artifactId>hibernate-validator</artifactId>
-	            <version>5.0.1.Final</version>
-	        </dependency>
-
+	            <version>${org.commons.lang.version}</version>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -232,15 +124,6 @@
 				<artifactId>maven-enforcer-plugin</artifactId>
 				<version>1.0.1</version>
 			</plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                    <packagingExcludes>WEB-INF/lib/servlet-api-2.5*.jar</packagingExcludes>
-                </configuration>
-            </plugin>
 		</plugins>
 	</build>
 
