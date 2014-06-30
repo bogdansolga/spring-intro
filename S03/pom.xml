@@ -30,7 +30,7 @@
 	<properties>
 		<java.version>1.7</java.version>
 
-        <parent.module.name>[3PG Spring intro]</parent.module.name>
+        <parent.module.name>[3PG Spring intro - S03]</parent.module.name>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
