@@ -3,7 +3,7 @@ package com.tpg.spring.intro.service;
 import com.tpg.spring.intro.entities.User;
 
 /**
- * UserService class
+ * Interface used to define the {@link com.tpg.spring.intro.entities.User} related services
  *
  * @author bogdan.solga
  *

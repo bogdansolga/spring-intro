@@ -4,7 +4,7 @@ import com.tpg.spring.intro.dao.UserDAO;
 import com.tpg.spring.intro.entities.User;
 
 /**
- * UserServiceImpl class
+ * Implementation of the {@link com.tpg.spring.intro.entities.User} related services
  *
  * @author bogdan.solga
  *
