@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService {
 
     private UserDAO usersDAO;
 
-    public UserServiceImpl(UserDAO usersDAO) {
+    public void setUsersDAO(UserDAO usersDAO) {
         this.usersDAO = usersDAO;
     }
 

@@ -6,6 +6,6 @@
     <bean id="userDao" class="com.tpg.spring.intro.dao.UserDAOImpl"/>
 
     <bean id="userService" class="com.tpg.spring.intro.service.UserServiceImpl">
-        <constructor-arg ref="userDao"/>
+        <property name="usersDAO" ref="userDao"/>
     </bean>
 </beans>

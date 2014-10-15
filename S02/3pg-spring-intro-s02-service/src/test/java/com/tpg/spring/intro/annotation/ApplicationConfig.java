@@ -17,6 +17,10 @@ public class ApplicationConfig {
 
     @Bean
     public UserService getUserService() {
-        return new UserServiceImpl(getUserDAO());
+        UserServiceImpl userService = new  UserServiceImpl();
+
+        userService.setUsersDAO(getUserDAO());
+
+        return userService;
     }
 }
