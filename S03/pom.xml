@@ -25,6 +25,8 @@
     <modules>
         <module>3pg-spring-intro-s03-data-access</module>
         <module>3pg-spring-intro-s03-service</module>
+        <module>3pg-spring-intro-s03-presentation</module>
+        <module>3pg-spring-intro-s03-webapp</module>
     </modules>
 
 	<properties>
@@ -36,11 +38,13 @@
 
 		<tomcat.connection.pool.version>7.0.53</tomcat.connection.pool.version>
 
-		<org.springframework.version>4.0.5.RELEASE</org.springframework.version>
+		<org.springframework.version>4.1.1.RELEASE</org.springframework.version>
 
 		<org.slf4j.version>1.7.7</org.slf4j.version>
 
 		<org.hibernate.version>4.3.5.Final</org.hibernate.version>
+
+        <org.commons.lang.version>3.3.2</org.commons.lang.version>
 	</properties>
 
 	<dependencyManagement>
@@ -77,6 +81,12 @@
 				<version>${org.springframework.version}</version>
 			</dependency>
 
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+
 			<!-- Logging -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -89,18 +99,6 @@
 	            <artifactId>jcl-over-slf4j</artifactId>
 	            <version>${org.slf4j.version}</version>
 	            <scope>runtime</scope>
-	        </dependency>
-
-	        <dependency>
-	            <groupId>ch.qos.logback</groupId>
-	            <artifactId>logback-classic</artifactId>
-	            <version>1.1.2</version>
-	        </dependency>
-
-	        <dependency>
-	            <groupId>ch.qos.logback</groupId>
-	            <artifactId>logback-core</artifactId>
-	            <version>1.1.2</version>
 	        </dependency>
 
 	        <!-- Hibernate -->
@@ -148,6 +146,14 @@
 	            <artifactId>hibernate-validator</artifactId>
 	            <version>5.0.1.Final</version>
 	        </dependency>
+
+            <!-- JavaX servlet dependency - only needed for build purposes -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>3.1.0</version>
+                <scope>provided</scope>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
 
