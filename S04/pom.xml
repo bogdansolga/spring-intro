@@ -90,6 +90,26 @@
                 <version>${org.slf4j.version}</version>
                 <scope>runtime</scope>
             </dependency>
+
+            <!-- Jackson JSON Mapper -->
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>1.9.13</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-core-asl</artifactId>
+                <version>1.9.13</version>
+            </dependency>
+
+            <!-- FLEX JSON -->
+            <dependency>
+                <groupId>net.sf.flexjson</groupId>
+                <artifactId>flexjson</artifactId>
+                <version>3.2</version>
+            </dependency>
 		</dependencies>
 	</dependencyManagement>
 
