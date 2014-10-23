@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.3pg</groupId>
-	<artifactId>3pg-spring-intro-s03</artifactId>
+	<artifactId>3pg-spring-intro-s04</artifactId>
 	<packaging>pom</packaging>
 	<version>0.0.1-SNAPSHOT</version>
     <name>${parent.module.name} Parent project</name>
