@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.3pg</groupId>
+    <artifactId>3pg-spring-intro</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>Spring intro</name>
+
+    <description>A Spring introduction training</description>
+    <inceptionYear>2014</inceptionYear>
+
+    <developers>
+        <developer>
+            <id>bogdan.solga</id>
+            <name>Bogdan Solga</name>
+            <email>bogdan.solga@gmail.com</email>
+            <url>https://www.linkedin.com/in/bogdansolga/</url>
+            <timezone>GMT+2</timezone>
+            <roles>
+                <role>author</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <modules>
+        <module>S01</module>
+        <module>S02</module>
+        <module>S03</module>
+        <module>S04</module>
+    </modules>
+</project>
