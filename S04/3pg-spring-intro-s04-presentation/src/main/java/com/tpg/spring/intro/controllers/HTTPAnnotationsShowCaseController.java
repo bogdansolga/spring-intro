@@ -21,7 +21,7 @@ public class HTTPAnnotationsShowCaseController {
 
     private Random random = new Random();
 
-    @RequestMapping(value = "/user/{userName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_XML_VALUE)
+    @RequestMapping(value = "/user/{userName}", method = RequestMethod.GET)
     public @ResponseBody User getUser(@PathVariable String userName) {
         User user = new User();
 
@@ -38,6 +38,7 @@ public class HTTPAnnotationsShowCaseController {
     public @ResponseBody String createUser(@RequestBody User user) {
         // TODO implement
         return "OK";
+        //return "{\"message\": \"OK\"}";
     }
 
     @RequestMapping(value = "/responseEntity", method = RequestMethod.GET)

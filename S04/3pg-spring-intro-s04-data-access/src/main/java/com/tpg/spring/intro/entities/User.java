@@ -3,7 +3,7 @@ package com.tpg.spring.intro.entities;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
-@XmlRootElement
+//@XmlRootElement
 public class User implements Serializable {
 
     private Integer userId;
