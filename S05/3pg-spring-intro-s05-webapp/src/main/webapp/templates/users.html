@@ -10,8 +10,8 @@
     </thead>
 
     <tbody>
-        <tr data-ng-repeat="user in users | filter:query | orderBy:orderProp">
-            <td>{{ user.id }}</td>
+        <tr data-ng-repeat="user in users">
+            <td>{{ user.userId }}</td>
             <td>{{ user.firstName }}</td>
             <td>{{ user.lastName }}</td>
         </tr>

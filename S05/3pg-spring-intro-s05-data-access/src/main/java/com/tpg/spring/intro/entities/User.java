@@ -1,9 +1,7 @@
 package com.tpg.spring.intro.entities;
 
-import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
-//@XmlRootElement
 public class User implements Serializable {
 
     private Integer userId;
@@ -14,7 +12,14 @@ public class User implements Serializable {
 
     private String userName;
 
-    private Integer age;
+    public User() {
+    }
+
+    public User(String firstName, String lastName, String userName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+    }
 
     public Integer getUserId() {
         return userId;
@@ -46,13 +51,5 @@ public class User implements Serializable {
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
     }
 }

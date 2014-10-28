@@ -28,7 +28,6 @@ public class HTTPAnnotationsShowCaseController {
         user.setFirstName("John");
         user.setLastName("Doe");
         user.setUserName(userName);
-        user.setAge(Math.abs(random.nextInt(30)));
         user.setUserId(Math.abs(random.nextInt(1000)));
 
         return user;

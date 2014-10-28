@@ -4,7 +4,7 @@ var userServices = angular.module('userServices', ['ngResource'])
 
 userServices.factory('UserServices', function($resource){
     return {
-        all:    $resource('/spring-intro/users/', {},
+        all:    $resource('/spring-intro/user/', {},
             {
                 'get': {method: 'GET', isArray: true}
             }
