@@ -1,7 +1,7 @@
 package com.tpg.spring.intro.dao;
 
 import com.tpg.spring.intro.entities.User;
-import org.springframework.stDatereotype.Repository;
+import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import java.util.Collection;
