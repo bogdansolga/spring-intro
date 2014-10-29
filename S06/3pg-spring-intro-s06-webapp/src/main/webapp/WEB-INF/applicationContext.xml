@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd"
+       xmlns:context="http://www.springframework.org/schema/context">
+
+    <!--
+    Activates various annotations to be detected in bean classes:
+        - Spring's @Required and @Autowired;
+        - JSR 250's @PostConstruct, @PreDestroy and @Resource (if available);
+        - JAX-WS's @WebServiceRef (if available);
+        - EJB3's @EJB (if available);
+        - JPA's @PersistenceContext and @PersistenceUnit (if available);
+    -->
+    <context:annotation-config/>
+
+    <!-- Scans within the base package of the application for @Components to configure as beans -->
+    <!-- @Controller, @Service, @Configuration, @Component, @Repository, etc. -->
+    <context:component-scan base-package="com.tpg.spring.intro"/>
+
+    <!-- Enables the Spring MVC @Controller programming model -->
+    <mvc:annotation-driven/>
+
+    <!-- map responses to JSP pages -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+</beans>
