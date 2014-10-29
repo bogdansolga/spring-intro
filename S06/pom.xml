@@ -42,12 +42,16 @@
 
 		<org.slf4j.version>1.7.7</org.slf4j.version>
 
-		<org.hibernate.version>4.3.5.Final</org.hibernate.version>
+		<org.hibernate.version>4.3.6.Final</org.hibernate.version>
 
         <org.commons.lang.version>3.3.2</org.commons.lang.version>
 
         <jackson2.version>2.4.3</jackson2.version>
-	</properties>
+
+        <postgresql.jdbc.driver.version>9.3-1102-jdbc41</postgresql.jdbc.driver.version>
+
+        <h2.database.version>1.4.182</h2.database.version>
+    </properties>
 
 	<dependencyManagement>
 		<dependencies>
@@ -69,6 +73,31 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
                 <version>${org.springframework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${org.springframework.version}</version>
+            </dependency>
+
+            <!-- Hibernate -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${org.hibernate.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${org.hibernate.version}</version>
             </dependency>
 
             <!-- JavaX servlet dependency - only needed for build purposes -->
@@ -131,6 +160,33 @@
                 <groupId>javax.inject</groupId>
                 <artifactId>javax.inject</artifactId>
                 <version>1</version>
+            </dependency>
+
+            <!-- Tomcat JDBC connection pooling -->
+            <dependency>
+                <groupId>org.apache.tomcat</groupId>
+                <artifactId>tomcat-jdbc</artifactId>
+                <version>${tomcat.connection.pool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.tomcat</groupId>
+                <artifactId>tomcat-juli</artifactId>
+                <version>${tomcat.connection.pool.version}</version>
+            </dependency>
+
+            <!-- PostgreSQL JDBC driver -->
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.jdbc.driver.version}</version>
+            </dependency>
+
+            <!-- H2 database -->
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.database.version}</version>
             </dependency>
 	  </dependencies>
 	</dependencyManagement>

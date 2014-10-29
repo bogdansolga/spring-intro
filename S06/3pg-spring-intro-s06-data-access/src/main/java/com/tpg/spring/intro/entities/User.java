@@ -1,9 +1,13 @@
 package com.tpg.spring.intro.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
+@Entity
 public class User implements Serializable {
 
+    @Id
     private Integer userId;
 
     private String firstName;

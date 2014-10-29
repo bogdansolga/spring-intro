@@ -1,7 +1,7 @@
 package com.tpg.spring.intro.dao;
 
 import com.tpg.spring.intro.entities.User;
-import org.springframework.stereotype.Repository;
+import org.springframework.stDatereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import java.util.Collection;
@@ -22,18 +22,6 @@ public class UserDAOImpl implements UserDAO {
 
         addUser(user1);
         addUser(user2);
-    }
-
-    @Override
-    public User getJohnDoe() {
-        User user = new User();
-
-        user.setUserId(99);
-        user.setFirstName("John");
-        user.setLastName("Doe");
-        user.setUserName("johndoe");
-
-        return user;
     }
 
     @Override
