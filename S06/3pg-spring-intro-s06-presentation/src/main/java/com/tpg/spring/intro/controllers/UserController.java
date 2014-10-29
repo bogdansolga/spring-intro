@@ -3,7 +3,9 @@ package com.tpg.spring.intro.controllers;
 import com.tpg.spring.intro.entities.User;
 import com.tpg.spring.intro.service.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.inject.Inject;
@@ -19,5 +21,15 @@ public class UserController {
     @RequestMapping
     public @ResponseBody Collection<User> getAll() {
         return userService.getAll();
+    }
+
+    @RequestMapping(value = "/{id}")
+    public @ResponseBody User get(@PathVariable Integer id) {
+        return userService.get(id);
+    }
+
+    @RequestMapping(value = "/name")
+    public @ResponseBody User get(@RequestParam String name) {
+        return userService.get(name);
     }
 }

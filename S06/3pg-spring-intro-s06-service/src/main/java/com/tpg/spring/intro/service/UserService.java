@@ -6,4 +6,8 @@ import java.util.Collection;
 
 public interface UserService {
     public Collection<User> getAll();
+
+    public User get(Integer id);
+
+    public User get(String name);
 }

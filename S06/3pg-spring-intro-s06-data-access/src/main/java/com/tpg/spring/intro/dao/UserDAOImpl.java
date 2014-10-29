@@ -1,19 +1,23 @@
 package com.tpg.spring.intro.dao;
 
 import com.tpg.spring.intro.entities.User;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @Repository
 public class UserDAOImpl implements UserDAO {
 
-    private Map<Integer, User> byId = new HashMap<>();
+    @Autowired
+    private SessionFactory sessionFactory;
 
-    private Map<String, User> byName = new HashMap<>();
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @PostConstruct
     private void init() {
@@ -26,28 +30,31 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public User get(Integer id) {
-        return byId.get(id);
+        return (User) sessionFactory.getCurrentSession().get(User.class, id);
     }
 
     @Override
     public User get(String name) {
-        return byName.get(name);
+        return jdbcTemplate.queryForObject("SELECT * FROM User WHERE userName = ?",
+                new Object[]{name}, new BeanPropertyRowMapper<>(User.class));
     }
 
     @Override
     public User addUser(User user) {
+        /*
         if (user.getUserId() == null) {
             user.setUserId(byId.size());
         }
 
         byId.put(user.getUserId(), user);
         byName.put(user.getUserName(), user);
+        */
 
         return user;
     }
 
     @Override
     public Collection<User> getAll() {
-        return byId.values();
+        return (Collection<User>) sessionFactory.getCurrentSession().createCriteria(User.class).list();
     }
 }

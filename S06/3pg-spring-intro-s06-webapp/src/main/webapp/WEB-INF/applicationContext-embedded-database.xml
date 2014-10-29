@@ -17,7 +17,7 @@
     </jdbc:embedded-database>
 
     <!-- Database initialization scripts. If any of the script fails, the initialization stops -->
-    <jdbc:initialize-database data-source="springIntroDataSource" enabled="true">
+    <jdbc:initialize-database data-source="springIntroDataSource" enabled="false">
         <jdbc:script location="${users.creation.script}"/>
     </jdbc:initialize-database>
 
@@ -38,5 +38,9 @@
 
     <!-- Enables transaction management for the methods annotated with @Transactional -->
     <tx:annotation-driven/>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="springIntroDataSource"/>
+    </bean>
 
 </beans>
