@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import java.util.Collection;
 
 @Service
-@Transactional(propagation = Propagation.NOT_SUPPORTED)
+@Transactional(propagation = Propagation.REQUIRED)
 public class UserServiceImpl implements UserService {
 
     @Inject
@@ -29,5 +29,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public User get(String name) {
         return usersDAO.get(name);
+    }
+
+    @Override
+    public void save(User user, Integer userId) {
+        User newUser = new User("ceva", "ceva", "ceva");
+
+        System.out.println(usersDAO.contains(user));
+        System.out.println(usersDAO.contains(newUser));
+
+        //usersDAO.merge(user);
+
+        usersDAO.save(user);
     }
 }

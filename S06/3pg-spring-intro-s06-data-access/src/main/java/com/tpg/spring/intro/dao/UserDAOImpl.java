@@ -57,4 +57,19 @@ public class UserDAOImpl implements UserDAO {
     public Collection<User> getAll() {
         return (Collection<User>) sessionFactory.getCurrentSession().createCriteria(User.class).list();
     }
+
+    @Override
+    public void save(User user) {
+        sessionFactory.getCurrentSession().persist(user);
+    }
+
+    @Override
+    public void merge(User user) {
+        sessionFactory.getCurrentSession().merge(user);
+    }
+
+    @Override
+    public boolean contains(User user) {
+        return sessionFactory.getCurrentSession().contains(user);
+    }
 }

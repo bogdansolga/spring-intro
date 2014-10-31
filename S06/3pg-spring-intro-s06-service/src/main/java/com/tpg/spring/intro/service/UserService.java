@@ -10,4 +10,6 @@ public interface UserService {
     public User get(Integer id);
 
     public User get(String name);
+
+    public void save(User user, Integer userId);
 }

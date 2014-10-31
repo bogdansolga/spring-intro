@@ -12,4 +12,10 @@ public interface UserDAO {
     public User addUser(User user);
 
     public Collection<User> getAll();
+
+    public void save(User user);
+
+    public void merge(User user);
+
+    boolean contains(User user);
 }
