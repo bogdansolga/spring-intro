@@ -1,6 +1,7 @@
 package com.tpg.spring.intro.controllers;
 
 import com.tpg.spring.intro.entities.User;
+import com.tpg.spring.intro.transport.UserTO;
 import com.tpg.spring.intro.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +25,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/{id}")
-    public @ResponseBody User get(@PathVariable Integer id) {
+    public @ResponseBody UserTO get(@PathVariable Integer id) {
         return userService.get(id);
     }
 
