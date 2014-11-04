@@ -12,8 +12,6 @@
     <!-- Enables transaction management for the methods annotated with @Transactional -->
     <tx:annotation-driven/>
 
-    <tx:advice id="interceptor" transaction-manager="transactionManager"/>
-
     <!-- The data-source used to connect to the 'springIntro' database -->
     <bean id="springIntroDataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close"
           p:driverClassName="${jdbc.driverClassName}" p:url="${springIntro.jdbc.url}"
