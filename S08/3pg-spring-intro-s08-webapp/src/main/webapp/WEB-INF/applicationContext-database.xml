@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+                http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- The session factory used to manage Hibernate sessions for the 'springIntro' database -->
+    <bean id="springIntroSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+          p:dataSource-ref="springIntroDataSource"
+          p:packagesToScan="com.tpg.spring.intro.entities"
+          p:hibernateProperties-ref="hibernateProperties">
+    </bean>
+
+    <bean id="hibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"
+          p:location="classpath:database/hibernate.properties"/>
+
+    <!-- The transaction manager used to handle Hibernate transactions -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager"
+          p:sessionFactory-ref="springIntroSessionFactory">
+    </bean>
+
+    <!-- Enables transaction management for the methods annotated with @Transactional -->
+    <tx:annotation-driven/>
+
+    <!-- The data-source used to connect to the 'springIntro' database -->
+    <bean id="springIntroDataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close"
+          p:driverClassName="${jdbc.driverClassName}" p:url="${springIntro.jdbc.url}"
+          p:username="${springIntro.database.username}" p:password="${springIntro.database.password}">
+        <property name="maxActive" value="100"/>
+        <property name="maxIdle" value="10"/>
+        <property name="initialSize" value="30"/>
+        <property name="maxWait" value="30000"/>
+        <property name="removeAbandoned" value="true"/>
+        <property name="removeAbandonedTimeout" value="60"/>
+        <property name="maxAge" value="5000"/>
+        <property name="defaultAutoCommit" value="false"/>
+        <property name="logAbandoned" value="false"/>
+        <property name="fairQueue" value="true"/>
+        <property name="commitOnReturn" value="true"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="validationQuery" value="SELECT 1"/>
+        <property name="logValidationErrors" value="true"/>
+    </bean>
+
+    <!-- Database initialization scripts. If any of the script fails, the initialization stops -->
+    <jdbc:initialize-database data-source="springIntroDataSource" enabled="false">
+        <jdbc:script location="${users.creation.script}"/>
+    </jdbc:initialize-database>
+
+</beans>
