@@ -1,9 +1,10 @@
 package com.tpg.spring.intro.transport;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class UserTO implements Serializable {
+
+    private Integer id;
 
     private String userName;
 
@@ -11,7 +12,13 @@ public class UserTO implements Serializable {
 
     private String lastName;
 
-    private List<ProductTO> products;
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getUserName() {
         return userName;
@@ -35,13 +42,5 @@ public class UserTO implements Serializable {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public List<ProductTO> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<ProductTO> products) {
-        this.products = products;
     }
 }

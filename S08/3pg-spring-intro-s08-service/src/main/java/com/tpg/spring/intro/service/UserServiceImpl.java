@@ -70,20 +70,10 @@ public class UserServiceImpl implements UserService {
     private UserTO buildUserTO(User user) {
         UserTO userTO = new UserTO();
 
+        userTO.setId(user.getId());
         userTO.setUserName(user.getUserName());
         userTO.setFirstName(user.getFirstName());
         userTO.setLastName(user.getLastName());
-
-        List<ProductTO> productTOs = new ArrayList<>();
-        for (Product product : user.getProducts()) {
-            ProductTO productTO = new ProductTO();
-
-            productTO.setName(product.getName());
-
-            productTOs.add(productTO);
-        }
-
-        userTO.setProducts(productTOs);
 
         return userTO;
     }
