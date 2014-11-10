@@ -49,7 +49,7 @@
 
     <!-- Database initialization scripts. If any of the script fails, the initialization stops -->
     <jdbc:initialize-database data-source="springIntroDataSource" enabled="false">
-        <jdbc:script location="${users.creation.script}"/>
+        <jdbc:script location="${entities.creation.script}"/>
     </jdbc:initialize-database>
 
 </beans>

@@ -6,7 +6,10 @@
            http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
     <http auto-config="true">
-        <intercept-url pattern="/users**" access="ROLE_USER" />
+        <!-- the role requested to access the specified URL pattern -->
+        <intercept-url pattern="/user**" access="ROLE_USER"/>
+
+        <intercept-url pattern="/product**" access="ROLE_USER,ROLE_ADMIN"/>
     </http>
 
     <!-- entry point into the authentication system -->

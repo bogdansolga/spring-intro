@@ -2,18 +2,19 @@
 
 var springIntro = angular.module('springIntro', ['ngRoute',
     // services
-    'userServices', 'productServices',
+    'userServices', 'productServices', 'authServices',
 
     // directives
-    'navbar',
+    'auth', 'navbar',
 
     // controllers
-    'userController', 'productController',
+    'mainController', 'userController', 'productController'
 ]);
 
 springIntro.config(['$routeProvider', function($routeProvider) {
     $routeProvider
-        .when('/',          {templateUrl: 'templates/home.html'})
+        .when('/',          {templateUrl: 'templates/home.html',        controller: 'MainController'})
+        .when('/home',      {templateUrl: 'templates/home.html',        controller: 'MainController'})
 
         .when('/users',     {templateUrl: 'templates/users.html',       controller: 'UserController'})
         .when('/products',  {templateUrl: 'templates/products.html',    controller: 'ProductController'})
