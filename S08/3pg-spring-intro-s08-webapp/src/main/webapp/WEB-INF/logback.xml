@@ -10,6 +10,8 @@
 
     <logger name="com.tpg.spring.intro" level="INFO"/>
 
+    <logger name="org.springframework.security" level="DEBUG"/>
+
     <!-- The root logger -->
     <root>
         <level value="WARN"/>
