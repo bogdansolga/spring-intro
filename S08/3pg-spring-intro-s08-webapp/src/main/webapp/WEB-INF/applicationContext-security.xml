@@ -7,9 +7,9 @@
 
     <http auto-config="true">
         <!-- the role requested to access the specified URL pattern -->
-        <intercept-url pattern="/user**" access="ROLE_USER"/>
+        <intercept-url pattern="/*/user/**" access="ROLE_USER"/>
 
-        <intercept-url pattern="/product**" access="ROLE_USER,ROLE_ADMIN"/>
+        <intercept-url pattern="/*/product/**" access="ROLE_ADMIN"/>
     </http>
 
     <!-- entry point into the authentication system -->
