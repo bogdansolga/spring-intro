@@ -35,5 +35,6 @@
         <module>S07</module>
         <module>S08</module>
         <module>S09</module>
+        <module>S10</module>
     </modules>
 </project>
