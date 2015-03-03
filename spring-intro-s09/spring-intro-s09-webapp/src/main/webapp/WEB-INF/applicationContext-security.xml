@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <global-method-security pre-post-annotations="enabled"/>
+
+    <http pattern="/*/products.html" security="none"/>
+
+    <http auto-config="false" entry-point-ref="authenticationEntryPoint" create-session="ifRequired" use-expressions="true">
+        <!-- the role requested to access the specified URL pattern -->
+
+        <intercept-url pattern="/*/users.html" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
+        <!-- <intercept-url pattern="/*/products.html" access="isAuthenticated()"/> -->
+
+        <custom-filter position="LAST" ref="authenticationFilter"/>
+        <logout delete-cookies="JSESSIONID" invalidate-session="true" logout-success-url="/#home"/>
+    </http>
+
+    <!-- entry point into the authentication system -->
+    <authentication-manager alias="authenticationManager" erase-credentials="true">
+        <authentication-provider user-service-ref="userService">
+            <password-encoder ref="passwordEncoder"/>
+        </authentication-provider>
+    </authentication-manager>
+
+    <beans:bean id="userService" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+        <beans:property name="dataSource" ref="springIntroDataSource"/>
+        <beans:property name="usersByUsernameQuery" value="SELECT userName, password, isActive
+                                                           FROM Users users
+                                                           WHERE users.userName = ?"/>
+        <beans:property name="authoritiesByUsernameQuery" value="SELECT users.userName, role.authority
+                                                                 FROM Users users
+                                                                 LEFT JOIN Role role ON users.id = role.userId
+                                                                 WHERE users.userName = ?"/>
+    </beans:bean>
+
+
+    <beans:bean id="authenticationFilter" class="net.safedata.spring.intro.security.PostAuthFilter">
+        <beans:property name="authenticationManager" ref="authenticationManager"/>
+    </beans:bean>
+
+    <beans:bean id="authenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+        <beans:property name="loginFormUrl" value="/"/>
+    </beans:bean>
+
+    <beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+</beans:beans>

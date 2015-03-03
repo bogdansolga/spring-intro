@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.3pg</groupId>
-    <artifactId>3pg-spring-intro</artifactId>
+    <!--
+        TODO
+            move the commonly used properties in this file
+            make this the parent for the rest of the parent files
+            change PostgreSQL to in memory DB
+            change Tomcat connection pool to Hikari
+            use dependency management and clean the versions from the modules
+            put the 0.0.2-SNAPSHOT version in the properties from this file, to propagate everywhere
+    -->
+
+    <groupId>net.safedata</groupId>
+    <artifactId>spring-intro</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>Spring intro</name>
 
     <description>A Spring introduction training</description>
@@ -34,7 +45,7 @@
         <module>S06</module>
         <module>S07</module>
         <module>S08</module>
-        <module>S09</module>
-        <module>S10</module>
+        <module>spring-intro-s09</module>
+        <module>spring-intro-s10</module>
     </modules>
 </project>

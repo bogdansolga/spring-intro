@@ -3,34 +3,21 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.3pg</groupId>
-	<artifactId>3pg-spring-intro-s02</artifactId>
+    <groupId>net.safedata</groupId>
+	<artifactId>spring-intro-s02</artifactId>
 	<packaging>pom</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
     <name>${parent.module.name} Parent project</name>
 
-    <developers>
-        <developer>
-            <id>bogdan.solga</id>
-            <name>Bogdan Solga</name>
-            <email>bogdan.solga@gmail.com</email>
-            <url>https://www.linkedin.com/in/bogdansolga/</url>
-            <timezone>GMT+2</timezone>
-            <roles>
-                <role>author</role>
-            </roles>
-        </developer>
-    </developers>
-
     <modules>
-        <module>3pg-spring-intro-s02-data-access</module>
-        <module>3pg-spring-intro-s02-service</module>
+        <module>spring-intro-s02-data-access</module>
+        <module>spring-intro-s02-service</module>
     </modules>
 
 	<properties>
 		<java.version>1.7</java.version>
 
-        <parent.module.name>[3PG Spring intro - S02]</parent.module.name>
+        <parent.module.name>[Spring intro - S02]</parent.module.name>
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
