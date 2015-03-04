@@ -4,7 +4,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-intro-s09</artifactId>
+    <artifactId>spring-intro-s05</artifactId>
     <packaging>pom</packaging>
 
     <parent>
@@ -13,16 +13,16 @@
         <version>0.0.2-SNAPSHOT</version>
     </parent>
 
-    <name>[Spring intro - S09]</name>
+    <name>[Spring intro - S05]</name>
 
     <modules>
-        <module>spring-intro-s09-data-access</module>
-        <module>spring-intro-s09-service</module>
-        <module>spring-intro-s09-presentation</module>
-        <module>spring-intro-s09-webapp</module>
+        <module>spring-intro-s05-data-access</module>
+        <module>spring-intro-s05-service</module>
+        <module>spring-intro-s05-presentation</module>
+        <module>spring-intro-s05-webapp</module>
     </modules>
 
 	<properties>
         <jackson2.version>2.4.3</jackson2.version>
-    </properties>
+	</properties>
 </project>
