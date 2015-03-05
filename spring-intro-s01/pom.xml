@@ -7,13 +7,13 @@
     <artifactId>spring-intro-s01</artifactId>
     <packaging>pom</packaging>
 
+    <name>[Spring intro - S01]</name>
+
     <parent>
         <groupId>net.safedata</groupId>
         <artifactId>spring-intro</artifactId>
         <version>0.0.2-SNAPSHOT</version>
     </parent>
-
-    <name>[Spring intro - S01]</name>
 
     <modules>
         <module>spring-intro-s01-data-access</module>

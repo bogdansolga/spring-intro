@@ -4,16 +4,6 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <!--
-        TODO
-            move the commonly used properties in this file
-            make this the parent for the rest of the parent files
-            change PostgreSQL to in memory DB
-            change Tomcat connection pool to Hikari
-            use dependency management and clean the versions from the modules
-            put the 0.0.2-SNAPSHOT version in the properties from this file, to propagate everywhere
-    -->
-
     <groupId>net.safedata</groupId>
     <artifactId>spring-intro</artifactId>
     <packaging>pom</packaging>
@@ -63,6 +53,7 @@
         <module>spring-intro-s01</module>
         <module>spring-intro-s02</module>
         <module>spring-intro-s03</module>
+        <!--
         <module>spring-intro-s04</module>
         <module>spring-intro-s05</module>
         <module>spring-intro-s06</module>
@@ -70,6 +61,7 @@
         <module>spring-intro-s08</module>
         <module>spring-intro-s09</module>
         <module>spring-intro-s10</module>
+        -->
     </modules>
 
     <properties>

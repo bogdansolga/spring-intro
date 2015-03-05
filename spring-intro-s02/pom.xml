@@ -7,6 +7,8 @@
 	<artifactId>spring-intro-s02</artifactId>
 	<packaging>pom</packaging>
 
+    <name>[Spring intro - S02]</name>
+
 	<parent>
 		<groupId>net.safedata</groupId>
 		<artifactId>spring-intro</artifactId>
@@ -18,9 +20,9 @@
         <module>spring-intro-s02-service</module>
     </modules>
 
-	<properties>
-		<module.name>[Spring intro - S02]</module.name>
-	</properties>
+    <properties>
+        <module.name>[Spring intro - S02]</module.name>
+    </properties>
 
 	<dependencyManagement>
 		<dependencies>

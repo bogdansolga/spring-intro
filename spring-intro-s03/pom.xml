@@ -7,15 +7,13 @@
 	<artifactId>spring-intro-s03</artifactId>
 	<packaging>pom</packaging>
 
+    <name>[Spring intro - S03]</name>
+
 	<parent>
 		<groupId>net.safedata</groupId>
 		<artifactId>spring-intro</artifactId>
         <version>0.0.2-SNAPSHOT</version>
 	</parent>
-
-    <properties>
-        <module.name>[Spring intro - S03]</module.name>
-    </properties>
 
     <modules>
         <module>spring-intro-s03-data-access</module>
@@ -23,6 +21,10 @@
         <module>spring-intro-s03-presentation</module>
         <module>spring-intro-s03-webapp</module>
     </modules>
+
+    <properties>
+        <module.name>[Spring intro - S03]</module.name>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
