@@ -1,3 +1,5 @@
+BEGIN TRANSACTION;
+
 DROP TABLE IF EXISTS USER;
 
 CREATE TABLE USER
@@ -12,8 +14,10 @@ CREATE TABLE USER
 
 ---------------------------------------------------------------------
 
-INSERT INTO USER (USERID, USERNAME, FIRSTNAME, LASTNAME) VALUES (1, 'ana',        'Anamaria', 'Damian');
-INSERT INTO USER (USERID, USERNAME, FIRSTNAME, LASTNAME) VALUES (2, 'anita',      'Anita',    'Bejan');
-INSERT INTO USER (USERID, USERNAME, FIRSTNAME, LASTNAME) VALUES (3, 'radu-mamii', 'Radu',     'Cotiga');
+INSERT INTO USER (USERID, USERNAME, FIRSTNAME, LASTNAME) VALUES (1, 'dani',  'Dani',     'Dutescu');
+INSERT INTO USER (USERID, USERNAME, FIRSTNAME, LASTNAME) VALUES (2, 'delia', 'Ana-Maria',    'Bontescu');
+INSERT INTO USER (USERID, USERNAME, FIRSTNAME, LASTNAME) VALUES (3, 'ovi',   'Ovi',     'Bobi');
+INSERT INTO USER (USERID, USERNAME, FIRSTNAME, LASTNAME) VALUES (4, 'casi',   'Casi',    'Dr. Holotescu');
+INSERT INTO USER (USERID, USERNAME, FIRSTNAME, LASTNAME) VALUES (5, 'radu',   'Radu',    'Mamii');
 
 COMMIT;
