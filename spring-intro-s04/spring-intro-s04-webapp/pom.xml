@@ -66,7 +66,7 @@
             <artifactId>jackson-annotations</artifactId>
         </dependency>
 
-        <!-- databinding; ObjectMapper, JsonNode and related classes are here -->
+        <!-- data-binding; ObjectMapper, JsonNode and related classes are here -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>

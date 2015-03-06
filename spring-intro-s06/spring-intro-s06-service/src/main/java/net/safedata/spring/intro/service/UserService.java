@@ -5,9 +5,9 @@ import net.safedata.spring.intro.entities.User;
 import java.util.Collection;
 
 public interface UserService {
-    public Collection<User> getAll();
+    Collection<User> getAll();
 
-    public User get(Integer id);
+    User get(Integer id);
 
-    public User get(String name);
+    User get(String name);
 }

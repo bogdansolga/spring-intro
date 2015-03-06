@@ -13,26 +13,4 @@
 
     <name>${module.name} Data access</name>
     <artifactId>spring-intro-s04-data-access</artifactId>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>net.safedata</groupId>
-                <artifactId>spring-intro-s03-data-access</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>net.safedata</groupId>
-                <artifactId>spring-intro-s03-service</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>net.safedata</groupId>
-                <artifactId>spring-intro-s03-presentation</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 </project>
