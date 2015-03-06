@@ -7,7 +7,7 @@
 
     <parent>
         <groupId>net.safedata</groupId>
-        <artifactId>3pg-spring-intro-s08</artifactId>
+        <artifactId>spring-intro-s08</artifactId>
         <version>0.0.2-SNAPSHOT</version>
     </parent>
 

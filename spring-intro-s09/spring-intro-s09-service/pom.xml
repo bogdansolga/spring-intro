@@ -2,34 +2,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <groupId>com.3pg</groupId>
-        <artifactId>3pg-spring-intro-s09</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-    </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
-    <name>${parent.module.name} Service</name>
-    <artifactId>3pg-spring-intro-s09-service</artifactId>
+    <parent>
+        <groupId>net.safedata</groupId>
+        <artifactId>spring-intro-s09</artifactId>
+        <version>0.0.2-SNAPSHOT</version>
+    </parent>
+
+    <name>${module.name} Service</name>
+    <artifactId>spring-intro-s09-service</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>com.3pg</groupId>
-            <artifactId>3pg-spring-intro-s09-data-access</artifactId>
-            <version>${project.parent.version}</version>
+            <groupId>net.safedata</groupId>
+            <artifactId>spring-intro-s09-data-access</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${org.springframework.version}</version>
-            <exclusions>
-                <!-- Exclude Commons Logging in favor of SLF4j -->
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <!-- Spring security -->
@@ -71,6 +64,5 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>
-
     </dependencies>
 </project>

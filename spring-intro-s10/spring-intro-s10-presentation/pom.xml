@@ -17,7 +17,7 @@
     <dependencies>
         <dependency>
             <groupId>net.safedata</groupId>
-            <artifactId>3pg-spring-intro-s10-service</artifactId>
+            <artifactId>spring-intro-s10-service</artifactId>
         </dependency>
 
         <dependency>
