@@ -53,9 +53,9 @@
         <module>spring-intro-s01</module>
         <module>spring-intro-s02</module>
         <module>spring-intro-s03</module>
-        <!--
         <module>spring-intro-s04</module>
         <module>spring-intro-s05</module>
+        <!--
         <module>spring-intro-s06</module>
         <module>spring-intro-s07</module>
         <module>spring-intro-s08</module>
@@ -78,7 +78,7 @@
 
         <!-- JavaX libraries -->
         <javax.servlet.version>[3.1.0,)</javax.servlet.version>
-        <javax.jstl.version>[1.2,)</javax.jstl.version>
+        <javax.jstl.version>1.2</javax.jstl.version>
         <javax.inject.version>1</javax.inject.version>
 
         <!-- H2 in-memory database version -->
@@ -89,7 +89,7 @@
 
         <!-- JSON de/serializers -->
         <jackson2.version>2.4.3</jackson2.version>
-        <flexjson.version>3.2</flexjson.version>
+        <flexjson.version>3.3</flexjson.version>
 
         <!-- Apache tools -->
         <apache.commons.lang3.version>[3.3.2,)</apache.commons.lang3.version>
@@ -221,6 +221,34 @@
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
                 <version>${logback.version}</version>
+            </dependency>
+
+            <!-- Jackson JSON Mapper -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson2.version}</version>
+            </dependency>
+
+            <!-- Just the annotations; use this dependency if you want to attach annotations
+                 to classes without connecting them to the code -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson2.version}</version>
+            </dependency>
+
+            <!-- FLEX JSON -->
+            <dependency>
+                <groupId>net.sf.flexjson</groupId>
+                <artifactId>flexjson</artifactId>
+                <version>${flexjson.version}</version>
             </dependency>
 
             <!-- Commons lang utilities -->
