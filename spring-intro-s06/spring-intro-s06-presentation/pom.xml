@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <name>${parent.module.name} Presentation</name>
+    <name>${module.name} Presentation</name>
     <artifactId>spring-intro-s06-presentation</artifactId>
 
     <dependencies>
@@ -21,7 +21,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${org.springframework.version}</version>
         </dependency>
 
         <!-- Logging -->

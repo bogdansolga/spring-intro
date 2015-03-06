@@ -11,7 +11,7 @@
         <version>0.0.2-SNAPSHOT</version>
     </parent>
 
-    <name>${parent.module.name} Service</name>
+    <name>${module.name} Service</name>
     <artifactId>spring-intro-s06-service</artifactId>
 
     <dependencies>
