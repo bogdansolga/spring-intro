@@ -5,7 +5,7 @@ var springIntro = angular.module('springIntro', ['ngRoute',
     'userServices', 'productServices',
 
     // directives
-    //'navbar',
+    'navbar',
 
     // controllers
     'userController', 'productController',

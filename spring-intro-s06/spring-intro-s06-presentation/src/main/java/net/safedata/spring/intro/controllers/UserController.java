@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Collection;
 
 @Controller
@@ -31,5 +33,10 @@ public class UserController {
     @RequestMapping(value = "/name")
     public @ResponseBody User get(@RequestParam String name) {
         return userService.get(name);
+    }
+
+    @RequestMapping(value = "/bindReqParams")
+    public @ResponseBody void bindParams(HttpServletRequest request, HttpServletResponse response) {
+        userService.bindReqRespParams(request, response);
     }
 }

@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Collection;
 
 @Service
@@ -29,5 +31,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User get(String name) {
         return usersDAO.get(name);
+    }
+
+    @Override
+    public void bindReqRespParams(HttpServletRequest request, HttpServletResponse response) {
+        // TODO do something
     }
 }
