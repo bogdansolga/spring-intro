@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
     <version>0.0.2-SNAPSHOT</version>
 
-    <name>Spring intro</name>
+    <name>${parent.module.name}</name>
     <description>A Spring introduction training</description>
     <url>https://github.com/bogdansolga/spring-intro</url>
     <inceptionYear>2014</inceptionYear>
@@ -91,14 +91,14 @@
         <hibernate.version>4.3.8.Final</hibernate.version>
 
         <!-- JSON de/serializers -->
-        <jackson2.version>2.4.3</jackson2.version>
+        <jackson2.version>2.5.1</jackson2.version>
         <flexjson.version>3.3</flexjson.version>
 
         <!-- Apache tools -->
         <apache.commons.lang3.version>[3.3.2,)</apache.commons.lang3.version>
 
         <!-- Logging -->
-        <slf4j.version>1.7.7</slf4j.version>
+        <slf4j.version>1.7.10</slf4j.version>
         <logback.version>1.1.2</logback.version>
         <logback.spring.ext.version>0.1.2</logback.spring.ext.version>
 
@@ -339,5 +339,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
 </project>
