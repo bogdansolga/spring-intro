@@ -87,6 +87,9 @@
         <!-- JDBC and connection pool -->
         <hikari.cp.version>2.3.3</hikari.cp.version>
 
+        <!-- Hibernate -->
+        <hibernate.version>4.3.8.Final</hibernate.version>
+
         <!-- JSON de/serializers -->
         <jackson2.version>2.4.3</jackson2.version>
         <flexjson.version>3.3</flexjson.version>

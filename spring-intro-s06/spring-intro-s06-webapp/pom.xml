@@ -48,15 +48,10 @@
             <artifactId>hibernate-entitymanager</artifactId>
         </dependency>
 
-        <!-- Tomcat JDBC connection pooling -->
+        <!-- Hikari connection pool - https://github.com/brettwooldridge/HikariCP -->
         <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jdbc</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-juli</artifactId>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
         </dependency>
 
         <!-- JavaX servlet -->
