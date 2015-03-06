@@ -226,6 +226,13 @@
                 <version>${logback.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.logback-extensions</groupId>
+                <artifactId>logback-ext-spring</artifactId>
+                <version>${logback.spring.ext.version}</version>
+                <scope>runtime</scope>
+            </dependency>
+
             <!-- Jackson JSON Mapper -->
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>

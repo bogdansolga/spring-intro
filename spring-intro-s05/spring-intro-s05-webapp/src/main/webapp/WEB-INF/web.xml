@@ -3,6 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
+    <listener>
+        <listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
+    </listener>
+
+    <context-param>
+        <description>
+            Location of the Logback config file; either a "classpath:" location (e.g. "classpath:myLogback.properties"),
+            an absolute file URL (e.g. "file:C:/logback.properties), or a plain path relative to the web application
+            root directory (e.g. "/WEB-INF/logback.properties"). If not specified, default Logback initialization will apply
+            ("logback.properties" in the class path; see Logback documentation for details).
+        </description>
+        <param-name>logbackConfigLocation</param-name>
+        <param-value>/WEB-INF/logback.xml</param-value>
+    </context-param>
+
     <!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
