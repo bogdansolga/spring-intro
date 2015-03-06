@@ -7,17 +7,14 @@
     <artifactId>spring-intro-s04</artifactId>
     <packaging>pom</packaging>
     <version>0.0.2-SNAPSHOT</version>
-    <name></name>
+
+    <name>[Spring intro - S04]</name>
 
     <parent>
         <groupId>net.safedata</groupId>
         <artifactId>spring-intro</artifactId>
         <version>0.0.2-SNAPSHOT</version>
     </parent>
-
-    <properties>
-        <module.name>[Spring intro - S04]</module.name>
-    </properties>
 
     <modules>
         <module>spring-intro-s04-data-access</module>
@@ -26,24 +23,28 @@
         <module>spring-intro-s04-webapp</module>
     </modules>
 
+    <properties>
+        <module.name>[Spring intro - S04]</module.name>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>net.safedata</groupId>
                 <artifactId>spring-intro-s04-data-access</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>net.safedata</groupId>
                 <artifactId>spring-intro-s04-service</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>net.safedata</groupId>
                 <artifactId>spring-intro-s04-presentation</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

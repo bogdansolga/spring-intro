@@ -7,6 +7,8 @@
     <artifactId>spring-intro-s05</artifactId>
     <packaging>pom</packaging>
 
+    <name>[Spring intro - S05]</name>
+
     <parent>
         <groupId>net.safedata</groupId>
         <artifactId>spring-intro</artifactId>
@@ -21,6 +23,7 @@
     </modules>
 
     <properties>
+        <module.name>[Spring intro - S05]</module.name>
         <jackson2.version>2.4.3</jackson2.version>
     </properties>
 
@@ -29,19 +32,19 @@
             <dependency>
                 <groupId>net.safedata</groupId>
                 <artifactId>spring-intro-s05-data-access</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>net.safedata</groupId>
                 <artifactId>spring-intro-s05-service</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>net.safedata</groupId>
                 <artifactId>spring-intro-s05-presentation</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

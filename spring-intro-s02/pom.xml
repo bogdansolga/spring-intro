@@ -29,7 +29,7 @@
 			<dependency>
 				<groupId>net.safedata</groupId>
 				<artifactId>spring-intro-s02-data-access</artifactId>
-				<version>${version}</version>
+                <version>${project.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

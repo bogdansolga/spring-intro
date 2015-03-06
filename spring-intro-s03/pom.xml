@@ -31,19 +31,19 @@
             <dependency>
                 <groupId>net.safedata</groupId>
                 <artifactId>spring-intro-s03-data-access</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>net.safedata</groupId>
                 <artifactId>spring-intro-s03-service</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>net.safedata</groupId>
                 <artifactId>spring-intro-s03-presentation</artifactId>
-                <version>${version}</version>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

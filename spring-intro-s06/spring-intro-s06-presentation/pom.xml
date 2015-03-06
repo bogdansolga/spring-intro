@@ -4,19 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>net.safedata</groupId>
-        <artifactId>3pg-spring-intro-s06</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <artifactId>spring-intro-s06</artifactId>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <name>${parent.module.name} Presentation</name>
-    <artifactId>3pg-spring-intro-s06-presentation</artifactId>
+    <artifactId>spring-intro-s06-presentation</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>net.safedata</groupId>
-            <artifactId>3pg-spring-intro-s06-service</artifactId>
-            <version>${project.parent.version}</version>
+            <artifactId>spring-intro-s06-service</artifactId>
         </dependency>
 
         <dependency>
