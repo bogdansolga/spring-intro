@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration scan="false">
     <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
-
         <encoder>
             <!-- layouts reference - http://logback.qos.ch/manual/layouts.html -->
             <pattern>[%date{HH:mm:ss.SSS}] %level %message [%class{0}]%n</pattern>
@@ -10,7 +9,7 @@
 
     <logger name="com.tpg.spring.intro" level="INFO"/>
 
-    <logger name="org.springframework.security" level="DEBUG"/>
+    <logger name="org.springframework.security" level="WARN"/>
 
     <!-- The root logger -->
     <root>
