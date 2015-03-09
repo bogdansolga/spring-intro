@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
     <version>0.0.2-SNAPSHOT</version>
 
-    <name>${parent.module.name}</name>
+    <name>[Spring intro]</name>
     <description>A Spring introduction training</description>
     <url>https://github.com/bogdansolga/spring-intro</url>
     <inceptionYear>2014</inceptionYear>
