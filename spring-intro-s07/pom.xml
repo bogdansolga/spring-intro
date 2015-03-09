@@ -26,4 +26,25 @@
         <module.name>[Spring intro - S07]</module.name>
     </properties>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>net.safedata</groupId>
+                <artifactId>spring-intro-s07-data-access</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.safedata</groupId>
+                <artifactId>spring-intro-s07-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.safedata</groupId>
+                <artifactId>spring-intro-s07-presentation</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

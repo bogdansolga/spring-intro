@@ -11,7 +11,7 @@
         <version>0.0.2-SNAPSHOT</version>
     </parent>
 
-    <name>${parent.module.name} Webapp</name>
+    <name>${module.name} Webapp</name>
     <artifactId>spring-intro-s07-webapp</artifactId>
     <packaging>war</packaging>
 
@@ -48,15 +48,16 @@
             <artifactId>hibernate-entitymanager</artifactId>
         </dependency>
 
-        <!-- Tomcat JDBC connection pooling -->
+        <!-- H2 database -->
         <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jdbc</artifactId>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
         </dependency>
 
+        <!-- Hikari connection pool - https://github.com/brettwooldridge/HikariCP -->
         <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-juli</artifactId>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
         </dependency>
 
         <!-- JavaX servlet -->
@@ -104,18 +105,10 @@
             <artifactId>jstl</artifactId>
         </dependency>
 
-        <!-- PostgreSQL JDBC driver -->
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-        </dependency>
-
         <!-- LogBack initializer -->
         <dependency>
             <groupId>org.logback-extensions</groupId>
             <artifactId>logback-ext-spring</artifactId>
-            <version>${logback.spring.ext.version}</version>
-            <scope>runtime</scope>
         </dependency>
     </dependencies>
 

@@ -22,4 +22,29 @@
         <module>spring-intro-s08-webapp</module>
     </modules>
 
+    <properties>
+        <module.name>[Spring intro - S08]</module.name>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>net.safedata</groupId>
+                <artifactId>spring-intro-s08-data-access</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.safedata</groupId>
+                <artifactId>spring-intro-s08-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.safedata</groupId>
+                <artifactId>spring-intro-s08-presentation</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
