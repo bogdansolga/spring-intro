@@ -13,4 +13,11 @@
 
     <name>${module.name} Data access</name>
     <artifactId>spring-intro-s04-data-access</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+    </dependencies>
 </project>
