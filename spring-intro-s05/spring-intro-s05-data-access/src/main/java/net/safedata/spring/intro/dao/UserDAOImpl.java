@@ -17,11 +17,15 @@ public class UserDAOImpl implements UserDAO {
 
     @PostConstruct
     private void init() {
-        User user1 = new User("Florin", "Jurcovici", "florin");
-        User user2 = new User("Natalia", "Lazar", "natalia");
+        User user1 = new User("Florin", "Wurst", "florin");
+        User user2 = new User("Razvan", "Glimbocaner", "razvan1");
+        User user3 = new User("Razvan", "PokerFace", "razvan2");
+        User user4 = new User("Andreea", "Minion", "andreea");
 
         addUser(user1);
         addUser(user2);
+        addUser(user3);
+        addUser(user4);
     }
 
     @Override
