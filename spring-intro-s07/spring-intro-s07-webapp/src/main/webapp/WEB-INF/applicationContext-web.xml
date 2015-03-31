@@ -8,6 +8,11 @@
     <!-- Enables the Spring MVC @Controller programming model -->
     <mvc:annotation-driven/>
 
+    <!-- H2 database server -->
+    <bean id="org.h2.tools.Server-WebServer" class="org.h2.tools.Server" factory-method="createWebServer" init-method="start" destroy-method="stop">
+        <constructor-arg value="-web,-webPort,8082"/>
+    </bean>
+
     <!-- map responses to JSP pages -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/"/>
