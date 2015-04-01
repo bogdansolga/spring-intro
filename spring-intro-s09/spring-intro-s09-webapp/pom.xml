@@ -31,6 +31,12 @@
             <artifactId>spring-intro-s09-presentation</artifactId>
         </dependency>
 
+        <!-- H2 database -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+
         <!-- Hikari connection pool - https://github.com/brettwooldridge/HikariCP -->
         <dependency>
             <groupId>com.zaxxer</groupId>
