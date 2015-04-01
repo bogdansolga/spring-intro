@@ -7,7 +7,7 @@
         </encoder>
     </appender>
 
-    <logger name="com.tpg.spring.intro" level="INFO"/>
+    <logger name="net.safedata.spring.intro" level="INFO"/>
 
     <logger name="org.springframework.security" level="WARN"/>
 
