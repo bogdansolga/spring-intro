@@ -31,6 +31,12 @@
             <artifactId>spring-intro-s09-presentation</artifactId>
         </dependency>
 
+        <!-- Hikari connection pool - https://github.com/brettwooldridge/HikariCP -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+        </dependency>
+
         <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -46,17 +52,6 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-        </dependency>
-
-        <!-- Tomcat JDBC connection pooling -->
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jdbc</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-juli</artifactId>
         </dependency>
 
         <!-- JavaX servlet -->
@@ -104,18 +99,10 @@
             <artifactId>jstl</artifactId>
         </dependency>
 
-        <!-- PostgreSQL JDBC driver -->
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-        </dependency>
-
         <!-- LogBack initializer -->
         <dependency>
             <groupId>org.logback-extensions</groupId>
             <artifactId>logback-ext-spring</artifactId>
-            <version>0.1.2</version>
-            <scope>runtime</scope>
         </dependency>
 
         <!-- Spring security -->
@@ -135,7 +122,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>2.4</version>
             </plugin>
 
             <plugin>

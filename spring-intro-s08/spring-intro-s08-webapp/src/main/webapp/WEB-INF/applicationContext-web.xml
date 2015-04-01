@@ -7,10 +7,4 @@
 
     <!-- Enables the Spring MVC @Controller programming model -->
     <mvc:annotation-driven/>
-
-    <!-- map responses to JSP pages -->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
 </beans>

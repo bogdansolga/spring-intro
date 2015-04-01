@@ -11,7 +11,7 @@
         <version>0.0.2-SNAPSHOT</version>
     </parent>
 
-    <name>${parent.module.name} Presentation</name>
+    <name>${module.name} Presentation</name>
     <artifactId>spring-intro-s10-presentation</artifactId>
 
     <dependencies>

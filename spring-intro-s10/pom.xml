@@ -22,7 +22,29 @@
         <module>spring-intro-s10-webapp</module>
     </modules>
 
-	<properties>
-        <jackson2.version>2.4.3</jackson2.version>
+    <properties>
+        <module.name>[Spring intro - S10]</module.name>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>net.safedata</groupId>
+                <artifactId>spring-intro-s10-data-access</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.safedata</groupId>
+                <artifactId>spring-intro-s10-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.safedata</groupId>
+                <artifactId>spring-intro-s10-presentation</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

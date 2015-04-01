@@ -9,10 +9,33 @@
                 http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
                 http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <!-- the spring-intro data source -->
+    <bean id="springIntroDataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+        <constructor-arg>
+            <bean class="com.zaxxer.hikari.HikariConfig">
+                <property name="dataSourceClassName" value="${jdbc.driverClassName}"/>
+
+                <property name="dataSourceProperties" >
+                    <props>
+                        <prop key="url">${springIntro.jdbc.url}</prop>
+                        <prop key="user">${springIntro.database.username}</prop>
+                        <prop key="password">${springIntro.database.password}</prop>
+                    </props>
+                </property>
+            </bean>
+        </constructor-arg>
+
+        <property name="poolName" value="spring-intro-connection-pool"/>
+        <property name="autoCommit" value="true"/>
+        <property name="minimumIdle" value="5"/>
+        <property name="maximumPoolSize" value="5"/>
+        <property name="connectionTimeout" value="2000"/>
+    </bean>
+
     <!-- The session factory used to manage Hibernate sessions for the 'springIntro' database -->
     <bean id="springIntroSessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
           p:dataSource-ref="springIntroDataSource"
-          p:packagesToScan="com.tpg.spring.intro.entities"
+          p:packagesToScan="net.safedata.spring.intro.entities"
           p:hibernateProperties-ref="hibernateProperties">
     </bean>
 
@@ -28,16 +51,7 @@
     <tx:annotation-driven/>
 
     <!-- The data-source used to connect to the 'springIntro' database -->
-    <bean id="springIntroDataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close"
-          p:driverClassName="${jdbc.driverClassName}" p:url="${springIntro.jdbc.url}"
-          p:username="${springIntro.database.username}" p:password="${springIntro.database.password}">
-        <property name="maxActive" value="10"/>
-        <property name="maxIdle" value="2"/>
-    </bean>
-
-    <!-- Database initialization scripts. If any of the script fails, the initialization stops -->
     <jdbc:initialize-database data-source="springIntroDataSource" enabled="false">
         <jdbc:script location="${entities.creation.script}"/>
     </jdbc:initialize-database>
-
 </beans>

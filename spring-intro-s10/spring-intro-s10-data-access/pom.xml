@@ -11,7 +11,7 @@
         <version>0.0.2-SNAPSHOT</version>
     </parent>
 
-    <name>${parent.module.name} Data access</name>
+    <name>${module.name} Data access</name>
     <artifactId>spring-intro-s10-data-access</artifactId>
 
     <dependencies>
