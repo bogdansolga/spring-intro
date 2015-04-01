@@ -5,11 +5,14 @@
              xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <http auto-config="true">
+    <http auto-config="false" create-session="ifRequired" entry-point-ref="authenticationEntryPoint">
         <!-- the role requested to access the specified URL pattern -->
         <intercept-url pattern="/*/user/**" access="ROLE_USER"/>
-
         <intercept-url pattern="/*/product/**" access="ROLE_ADMIN"/>
+
+        <custom-filter position="FORM_LOGIN_FILTER" ref="authenticationFilter"/>
+
+        <logout delete-cookies="JSESSIONID" invalidate-session="true" logout-success-url="/#home"/>
     </http>
 
     <!-- entry point into the authentication system -->
@@ -21,4 +24,11 @@
         </authentication-provider>
     </authentication-manager>
 
+    <beans:bean id="authenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+        <beans:property name="loginFormUrl" value="/#home"/>
+    </beans:bean>
+
+    <beans:bean id="authenticationFilter" class="net.safedata.spring.intro.security.PostAuthenticationFilter">
+        <beans:property name="authenticationManager" ref="authenticationManager"/>
+    </beans:bean>
 </beans:beans>

@@ -18,7 +18,7 @@ auth.directive('auth', function($rootScope, $http, AuthServices) {
                     // called asynchronously if an error occurs or the server returns response with an error status
                     if (status == 401 || status == 403) {
                         // unauthorized
-                        var message = data.substring(data.indexOf('Authentication Failed: '), data.lastIndexOf('</h1>'));
+                        var message = data.substring(data.indexOf('Incorrect username or password'), data.lastIndexOf('</h1>'));
 
                         alert(message);
                     } else {
