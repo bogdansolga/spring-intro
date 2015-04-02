@@ -7,15 +7,13 @@
 
     <global-method-security pre-post-annotations="enabled"/>
 
-    <http pattern="/*/products.html" security="none"/>
-
     <http auto-config="false" entry-point-ref="authenticationEntryPoint" create-session="ifRequired" use-expressions="true">
         <!-- the role requested to access the specified URL pattern -->
 
-        <intercept-url pattern="/*/users.html" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
-        <!-- <intercept-url pattern="/*/products.html" access="isAuthenticated()"/> -->
+        <intercept-url pattern="/users**" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
+        <intercept-url pattern="/products**" access="isAuthenticated()"/>
 
-        <custom-filter position="LAST" ref="authenticationFilter"/>
+        <custom-filter position="FORM_LOGIN_FILTER" ref="authenticationFilter"/>
         <logout delete-cookies="JSESSIONID" invalidate-session="true" logout-success-url="/#home"/>
     </http>
 
