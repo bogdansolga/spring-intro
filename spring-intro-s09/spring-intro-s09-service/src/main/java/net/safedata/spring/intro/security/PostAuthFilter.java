@@ -56,7 +56,8 @@ public class PostAuthFilter extends UsernamePasswordAuthenticationFilter {
 
         //TODO increase the failed login attempts counter
 
-        response.sendError(401, "Invalid username or password");
+        //response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid username or password");
+        response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
     }
 
     @SuppressWarnings("unused")
