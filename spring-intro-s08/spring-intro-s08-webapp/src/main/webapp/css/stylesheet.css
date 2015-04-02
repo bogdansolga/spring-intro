@@ -7,3 +7,23 @@ select {
     padding-right: 15px;
     border-bottom: 1px solid #e5e5e5;
 }
+
+.auth-header {
+    min-height: 12px;
+    padding-left: 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.auth-footer {
+    padding: 5px 5px 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    text-align: left;
+    border-top: 1px solid #e5e5e5;
+}
+
+.auth-error {
+    color: #cc0000;
+    float: left;
+    margin-left: 5px;
+}
