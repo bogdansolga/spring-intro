@@ -37,7 +37,6 @@
                                                                  WHERE users.userName = ?"/>
     </beans:bean>
 
-
     <beans:bean id="authenticationFilter" class="net.safedata.spring.intro.security.PostAuthFilter">
         <beans:property name="authenticationManager" ref="authenticationManager"/>
     </beans:bean>
@@ -47,5 +46,4 @@
     </beans:bean>
 
     <beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
-
 </beans:beans>
