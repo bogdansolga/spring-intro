@@ -13,6 +13,8 @@ public class Product implements Serializable {
 
     private String description;
 
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "userId", referencedColumnName = "id", nullable = false)
     private User user;
 
     public Integer getId() {

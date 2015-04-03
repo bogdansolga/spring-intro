@@ -17,6 +17,8 @@ public class User implements Serializable {
 
     private String userName;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OrderBy("id ASC")
     private Set<Product> products;
 
     public Integer getId() {
