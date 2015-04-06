@@ -25,7 +25,7 @@ public class UserController {
 
     @RequestMapping(value = "/{id}")
     public @ResponseBody UserTO get(@PathVariable Integer id) throws InterruptedException, ExecutionException {
-        return userService.get(id).get();
+        return userService.get(id);
     }
 
     @RequestMapping(value = "/name")
