@@ -3,7 +3,6 @@ package net.safedata.spring.intro;
 import net.safedata.spring.intro.dao.UserDAO;
 import net.safedata.spring.intro.entities.User;
 import net.safedata.spring.intro.service.UserServiceImpl;
-import net.safedata.spring.intro.transport.UserTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
