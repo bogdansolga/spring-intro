@@ -2,6 +2,7 @@ package net.safedata.spring.intro;
 
 import net.safedata.spring.intro.service.UserService;
 import net.safedata.spring.intro.transport.UserTO;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "classpath:applicationContext.xml")
+@Ignore("de aia")
 public class UserServiceSpringTest {
 
     @Autowired

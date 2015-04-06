@@ -3,12 +3,14 @@ package net.safedata.spring.intro;
 import net.safedata.spring.intro.dao.UserDAO;
 import net.safedata.spring.intro.entities.User;
 import net.safedata.spring.intro.service.UserServiceImpl;
+import net.safedata.spring.intro.transport.UserTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
@@ -26,9 +28,20 @@ public class UserServiceMockitoTest {
     @Test
     public void getUserReturnsANotNullUser() {
         User user = mock(User.class);
+        when(user.getUserName()).thenReturn("ana");
 
-        when(userService.get(anyString())).thenReturn(user);
+        when(userDAO.get(anyString())).thenReturn(user);
 
-        assertNotNull(user);
+        User anotherUser = userService.get("ceva");
+
+        assertNotNull(anotherUser);
+        assertEquals(anotherUser.getUserName(), "ana");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void throwWhenEmpty() {
+        when(userDAO.get(-1)).thenThrow(new IllegalArgumentException("cannot return a negative userId"));
+
+        userService.get(-1);
     }
 }
