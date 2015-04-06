@@ -30,6 +30,8 @@ public class PostAuthFilter extends UsernamePasswordAuthenticationFilter {
                                             Authentication authentication)
             throws IOException, ServletException {
 
+        super.successfulAuthentication(request, response, chain, authentication);
+
         String userName = obtainUsername(request);
 
         LOGGER.info("On successful authentication - the user '{}' has logged in", userName);
