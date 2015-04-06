@@ -60,6 +60,7 @@
         <module>spring-intro-s08</module>
         <module>spring-intro-s09</module>
         <module>spring-intro-s10</module>
+        <module>spring-intro-s11</module>
     </modules>
 
     <properties>
@@ -99,6 +100,10 @@
         <slf4j.version>1.7.10</slf4j.version>
         <logback.version>1.1.2</logback.version>
         <logback.spring.ext.version>0.1.2</logback.spring.ext.version>
+
+        <!-- Unit testing -->
+        <junit.version>4.12</junit.version>
+        <mockito.version>1.10.19</mockito.version>
 
         <!-- Maven plugins versions -->
         <maven.compiler.plugin.version>3.2</maven.compiler.plugin.version>
