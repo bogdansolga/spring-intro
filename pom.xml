@@ -71,8 +71,8 @@
         <parent.module.name>[Spring intro]</parent.module.name>
 
         <!-- Spring versions -->
-        <spring.framework.version>4.1.5.RELEASE</spring.framework.version>
-        <spring.security.version>3.2.6.RELEASE</spring.security.version>
+        <spring.framework.version>4.1.6.RELEASE</spring.framework.version>
+        <spring.security.version>3.2.7.RELEASE</spring.security.version>
 
         <!-- JavaX libraries -->
         <javax.servlet.version>[3.1.0,)</javax.servlet.version>
