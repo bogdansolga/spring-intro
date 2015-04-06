@@ -19,16 +19,8 @@ public class UserServiceImpl implements UserService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
-    private UserDAO usersDAO;
-
-    public UserDAO getUsersDAO() {
-        return usersDAO;
-    }
-
     @Autowired
-    public void setUsersDAO(UserDAO usersDAO) {
-        this.usersDAO = usersDAO;
-    }
+    private UserDAO usersDAO;
 
     @Override
     public Collection<UserTO> getAll() throws InterruptedException, ExecutionException {
