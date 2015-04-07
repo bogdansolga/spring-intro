@@ -1,0 +1,9 @@
+server:
+    port: 8080
+    contextPath: /
+
+spring:
+    application:
+        name: Spring Boot intro app
+    config:
+        name: Spring Boot intro app

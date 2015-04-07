@@ -61,6 +61,7 @@
         <module>spring-intro-s09</module>
         <module>spring-intro-s10</module>
         <module>spring-intro-s11</module>
+        <module>spring-intro-s12</module>
     </modules>
 
     <properties>
@@ -73,7 +74,7 @@
 
         <!-- Spring versions -->
         <spring.framework.version>4.1.6.RELEASE</spring.framework.version>
-        <spring.security.version>3.2.7.RELEASE</spring.security.version>
+        <spring.security.version>4.0.0.RELEASE</spring.security.version>
 
         <!-- JavaX libraries -->
         <javax.servlet.version>[3.1.0,)</javax.servlet.version>
@@ -129,6 +130,15 @@
                         <artifactId>commons-logging</artifactId>
                     </exclusion>
                 </exclusions>
+            </dependency>
+
+            <!-- Spring security BOM -->
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-bom</artifactId>
+                <version>${spring.security.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
 
             <!-- Spring security -->
