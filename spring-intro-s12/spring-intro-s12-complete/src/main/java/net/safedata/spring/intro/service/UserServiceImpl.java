@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.concurrent.ExecutionException;
 
 @Service
+@Transactional(readOnly = true, propagation = Propagation.REQUIRED)
 public class UserServiceImpl implements UserService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
@@ -35,7 +36,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
     public UserTO get(Integer id) {
         LOGGER.info("Retrieving the user with the ID '{}'...", id);
 
@@ -45,7 +45,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
     public User get(String name) {
         return usersDAO.get(name);
     }
