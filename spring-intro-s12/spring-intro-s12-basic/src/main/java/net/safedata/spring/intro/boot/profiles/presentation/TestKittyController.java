@@ -1,4 +1,4 @@
-package net.safedata.spring.intro.boot.presentation;
+package net.safedata.spring.intro.boot.profiles.presentation;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.RequestMapping;
