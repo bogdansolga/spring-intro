@@ -1,0 +1,9 @@
+# reference - http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+server:
+    port: 8080
+    contextPath: /
+
+spring:
+    application:
+        name: spring-intro
