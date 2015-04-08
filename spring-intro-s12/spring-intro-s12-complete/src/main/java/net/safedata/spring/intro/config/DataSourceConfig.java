@@ -16,7 +16,10 @@ public class DataSourceConfig {
     public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
+                .setName("spring-intro")
                 .addScript("classpath:entities-ddl.sql")
+                .continueOnError(false)
+                .ignoreFailedDrops(false)
                 .build();
     }
 
