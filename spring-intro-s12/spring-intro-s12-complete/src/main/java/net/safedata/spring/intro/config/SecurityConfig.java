@@ -34,25 +34,37 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
-        auth.eraseCredentials(true);
+        auth.inMemoryAuthentication().withUser("ana").password("spring").roles("ADMIN");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        //http://docs.spring.io/spring-security/site/docs/4.0.0.RELEASE/reference/htmlsingle/#jc-httpsecurity
+        
+        http.formLogin()
+            .loginPage("/j_spring_security_check")
+                .usernameParameter("j_username") // defaults to username
+                .passwordParameter("j_password") // defaults to password
+            .defaultSuccessUrl("/#users")
+        .permitAll();
 
-        http.formLogin().permitAll().loginPage("/#login")
-                .and()
-                .csrf().disable()
-                .headers()
-                .frameOptions().disable();
+        http.logout()
+            .logoutUrl("/j_spring_security_logout")
+        .permitAll();
+
+        http.csrf().disable();
+        http.headers()
+            .xssProtection().disable()
+            .frameOptions().disable()
+            .contentTypeOptions().disable()
+            .cacheControl().disable();
 
         http.sessionManagement()
             .sessionAuthenticationErrorUrl("/#")
             .invalidSessionUrl("/#")
             .and().authorizeRequests().antMatchers(
-                "/user/**",
-                "/product/**"
+                "/*/user/**",
+                "/*/product/**"
         ).access("authenticated");
 
         http.logout()
