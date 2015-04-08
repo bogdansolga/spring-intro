@@ -1,9 +1,16 @@
 server:
     port: 8080
-    contextPath: /
 
 spring:
     application:
         name: Spring Boot intro app
     config:
         name: Spring Boot intro app
+
+    datasource:
+        dataSourceClassName: org.h2.jdbcx.JdbcDataSource
+        url: jdbc:h2:~/spring-intro;DB_CLOSE_DELAY=-1
+        databaseName: spring-intro
+        serverName: localhost
+        username: wurst
+        password: glimbocaner

@@ -21,13 +21,13 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     public @ResponseBody Collection<UserTO> getAll() {
         return userService.getAll();
     }
 
     @RequestMapping(value = "/{id}")
-    @PreAuthorize("hasRole('ROLE_USER') AND #id = authentication.details.id")
+    //@PreAuthorize("hasRole('ROLE_USER') AND #id = authentication.details.id")
     public @ResponseBody UserTO get(@PathVariable Integer id) {
         return userService.get(id);
     }
