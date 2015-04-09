@@ -9,17 +9,10 @@ spring:
     config:
         name: Spring Boot intro app
 
-    datasource:
-        platform: H2
-        dataSourceClassName: org.h2.jdbcx.JdbcDataSource
-        url: jdbc:h2:~/spring-intro;DB_CLOSE_DELAY=-1
-        databaseName: spring-intro
-        host: localhost
-        username: sa
-        password: sa
-        initialize: true
-        continueOnError: false
-        data: classpath:entities-ddl.sql
+    jpa:
+        show-sql: false
+        hibernate:
+            ddl-auto: update
 
     security:
         auth:

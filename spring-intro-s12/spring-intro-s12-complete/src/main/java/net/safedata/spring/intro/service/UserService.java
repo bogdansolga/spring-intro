@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.concurrent.ExecutionException;
 
 public interface UserService {
-    Collection<UserTO> getAll() throws InterruptedException, ExecutionException;
+    Collection<UserTO> getAll();
 
     UserTO get(Integer id);
 

@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.LinkedList;
-import java.util.concurrent.ExecutionException;
 
 @Service
 @Transactional(readOnly = true, propagation = Propagation.REQUIRED)
@@ -24,7 +23,7 @@ public class UserServiceImpl implements UserService {
     private UserDAO usersDAO;
 
     @Override
-    public Collection<UserTO> getAll() throws InterruptedException, ExecutionException {
+    public Collection<UserTO> getAll() {
         Collection<UserTO> userTOs = new LinkedList<>();
 
         Collection<User> allUsers = usersDAO.getAll();

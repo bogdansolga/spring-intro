@@ -5,20 +5,28 @@ import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "USERS")
 public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Integer id;
 
+    @Column(name = "FIRSTNAME")
     private String firstName;
 
+    @Column(name = "LASTNAME")
     private String lastName;
 
+    @Column(name = "USERNAME")
     private String userName;
 
+    @Column(name = "PASSWORD")
     private String password;
+
+    @Column(name = "ISACTIVE")
+    private Boolean isActive;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("id ASC")
@@ -70,6 +78,14 @@ public class User implements Serializable {
 
     public void setProducts(Set<Product> products) {
         this.products = products;
+    }
+
+    public Boolean isActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean isActive) {
+        this.isActive = isActive;
     }
 
     @Override
