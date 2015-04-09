@@ -4,8 +4,12 @@ import net.safedata.spring.intro.security.PostAuthFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
+import org.springframework.boot.bind.RelaxedPropertyResolver;
+import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -14,13 +18,28 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.sql.DataSource;
+
 @Configuration
+@AutoConfigureAfter(DataSourceConfig.class)
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter implements EnvironmentAware {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfig.class);
+
+    private RelaxedPropertyResolver propertyResolver;
+
+    @Autowired
+    private DataSource dataSource;
+
+    @Override
+    public void setEnvironment(Environment environment) {
+        this.propertyResolver = new RelaxedPropertyResolver(environment, "spring.security.auth.");
+    }
 
     @SuppressWarnings("unused")
     @EnableGlobalMethodSecurity(prePostEnabled = true, jsr250Enabled = true)
@@ -32,9 +51,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder(10);
     }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("ana").password("spring").roles("ADMIN");
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder()).init(auth);
     }
 
     @Override
@@ -70,7 +89,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.logout()
                 .invalidateHttpSession(true)
                 .logoutSuccessUrl("/#home")
-                .deleteCookies("JSESSIONID", "sd-remember-me", "currentAccount")
+                .deleteCookies("JSESSIONID")
                 .permitAll();
 
         http.addFilter(postAuthenticationFilter());
@@ -99,5 +118,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         paf.setAuthenticationManager(authenticationManager);
 
         return paf;
+    }
+
+    @Override
+    public UserDetailsService userDetailsService() {
+        JdbcDaoImpl userDetailsService = new JdbcDaoImpl();
+
+        userDetailsService.setDataSource(dataSource);
+        userDetailsService.setUsersByUsernameQuery(propertyResolver.getProperty("usersByUsernameQuery"));
+        userDetailsService.setAuthoritiesByUsernameQuery(propertyResolver.getProperty("authoritiesByUsernameQuery"));
+
+        return userDetailsService;
     }
 }

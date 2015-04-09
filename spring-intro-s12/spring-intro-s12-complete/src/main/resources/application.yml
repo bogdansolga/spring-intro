@@ -1,3 +1,5 @@
+# reference - http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
 server:
     port: 8080
 
@@ -8,9 +10,18 @@ spring:
         name: Spring Boot intro app
 
     datasource:
+        platform: H2
         dataSourceClassName: org.h2.jdbcx.JdbcDataSource
-        url: jdbc:h2:mem/spring-intro;DB_CLOSE_DELAY=-1
+        url: jdbc:h2:~/spring-intro;DB_CLOSE_DELAY=-1
         databaseName: spring-intro
-        serverName: localhost
-        username: SA
-        password: SA
+        host: localhost
+        username: sa
+        password: sa
+        initialize: true
+        continueOnError: false
+        data: classpath:entities-ddl.sql
+
+    security:
+        auth:
+            usersByUsernameQuery: SELECT userName, password, isActive FROM Users users WHERE users.userName = ?
+            authoritiesByUsernameQuery: SELECT users.userName, role.authority FROM Users users LEFT JOIN Role role ON users.id = role.userId WHERE users.userName = ?

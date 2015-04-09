@@ -1,26 +1,44 @@
 package net.safedata.spring.intro.config;
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.boot.bind.RelaxedPropertyResolver;
+import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
 @Configuration
-public class DataSourceConfig {
+@EnableTransactionManagement
+public class DataSourceConfig implements EnvironmentAware {
 
-    @Bean
-    public DataSource dataSource() {
-        return new EmbeddedDatabaseBuilder()
-                .setType(EmbeddedDatabaseType.H2)
-                .setName("spring-intro")
-                .addScript("classpath:entities-ddl.sql")
-                .continueOnError(false)
-                .ignoreFailedDrops(false)
-                .build();
+    private RelaxedPropertyResolver propertyResolver;
+
+    @Override
+    public void setEnvironment(Environment environment) {
+        this.propertyResolver = new RelaxedPropertyResolver(environment, "spring.datasource.");
+    }
+
+    @Bean(destroyMethod = "close")
+    public HikariDataSource dataSource() {
+        final HikariConfig config = buildConfig();
+
+        final HikariDataSource dataSource = new HikariDataSource(config);
+
+        dataSource.setAutoCommit(true);
+
+        dataSource.setMinimumIdle(propertyResolver.getProperty("min-idle", Integer.class, 1));
+        dataSource.setMaximumPoolSize(propertyResolver.getProperty("max-active", Integer.class, 2));
+        dataSource.setConnectionTimeout(propertyResolver.getProperty("max-wait", Integer.class, 3000));
+
+        return dataSource;
     }
 
     @Bean
@@ -37,4 +55,27 @@ public class DataSourceConfig {
     public HibernateTransactionManager transactionManager() {
         return new HibernateTransactionManager(sessionFactory().getObject());
     }
+
+    private HikariConfig buildConfig() {
+        final HikariConfig hikariConfig = new HikariConfig();
+
+        hikariConfig.setDataSourceClassName(propertyResolver.getProperty("dataSourceClassName"));
+        hikariConfig.addDataSourceProperty("url", propertyResolver.getProperty("url"));
+        hikariConfig.addDataSourceProperty("user", propertyResolver.getProperty("username"));
+        hikariConfig.addDataSourceProperty("password", propertyResolver.getProperty("password"));
+
+        return hikariConfig;
+    }
+
+    /*
+    @Bean
+    public DataSource dataSource() {
+        return new EmbeddedDatabaseBuilder()
+                .setType(EmbeddedDatabaseType.H2)
+                .addScript("classpath:entities-ddl.sql")
+                .continueOnError(false)
+                .ignoreFailedDrops(false)
+                .build();
+    }
+    */
 }
