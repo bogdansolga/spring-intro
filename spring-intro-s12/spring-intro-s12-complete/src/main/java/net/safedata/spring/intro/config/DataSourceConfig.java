@@ -55,10 +55,10 @@ public class DataSourceConfig implements EnvironmentAware {
     private HikariConfig buildConfig() {
         final HikariConfig hikariConfig = new HikariConfig();
 
-        hikariConfig.setDataSourceClassName(propertyResolver.getProperty("dataSourceClassName"));
-        hikariConfig.addDataSourceProperty("url", propertyResolver.getProperty("url"));
-        hikariConfig.addDataSourceProperty("user", propertyResolver.getProperty("username"));
-        hikariConfig.addDataSourceProperty("password", propertyResolver.getProperty("password"));
+        hikariConfig.setDataSourceClassName(propertyResolver.getProperty("dataSourceClassName", "org.h2.jdbcx.JdbcDataSource"));
+        hikariConfig.addDataSourceProperty("url", propertyResolver.getProperty("url", "jdbc:h2:~/spring-intro;DB_CLOSE_DELAY=-1"));
+        hikariConfig.addDataSourceProperty("user", propertyResolver.getProperty("username", "sa"));
+        hikariConfig.addDataSourceProperty("password", propertyResolver.getProperty("password", "sa"));
 
         return hikariConfig;
     }
