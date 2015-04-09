@@ -44,7 +44,7 @@
     </beans:bean>
 
     <beans:bean id="authenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
-        <beans:property name="loginFormUrl" value="/"/>
+        <beans:constructor-arg name="loginFormUrl" value="/"/>
     </beans:bean>
 
     <beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
