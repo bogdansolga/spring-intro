@@ -2,8 +2,6 @@ package net.safedata.spring.intro.config;
 
 import net.safedata.spring.intro.security.SuccessfulAuthHandler;
 import net.safedata.spring.intro.security.UnsuccessfulAuthHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.bind.RelaxedPropertyResolver;
@@ -20,7 +18,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import javax.sql.DataSource;
 
@@ -29,8 +26,6 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, jsr250Enabled = true, securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter implements EnvironmentAware {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfig.class);
 
     private RelaxedPropertyResolver propertyResolver;
 
@@ -54,8 +49,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Envi
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //http://docs.spring.io/spring-security/site/docs/4.0.0.RELEASE/reference/htmlsingle/#jc-httpsecurity
-        
         http.formLogin()
             .loginPage("/j_spring_security_check")
                 .usernameParameter("j_username") // defaults to username
@@ -90,8 +83,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Envi
                 .logoutSuccessUrl("/#home")
                 .deleteCookies("JSESSIONID")
                 .permitAll();
-
-        //http.addFilterBefore(postAuthenticationFilter(), BasicAuthenticationFilter.class);
     }
 
     @Override
