@@ -11,7 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
 @Configuration
-public class WebConfig implements ServletContextInitializer {mall 
+public class WebConfig implements ServletContextInitializer {
 
     @Autowired
     private Environment environment;
