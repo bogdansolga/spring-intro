@@ -1,6 +1,7 @@
 package net.safedata.spring.intro.config;
 
-import net.safedata.spring.intro.security.PostAuthFilter;
+import net.safedata.spring.intro.security.SuccessfulAuthHandler;
+import net.safedata.spring.intro.security.UnsuccessfulAuthHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,8 @@ import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-import org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -21,12 +20,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import javax.sql.DataSource;
 
 @Configuration
 @AutoConfigureAfter(DataSourceConfig.class)
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true, jsr250Enabled = true, securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter implements EnvironmentAware {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfig.class);
@@ -39,11 +40,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Envi
     @Override
     public void setEnvironment(Environment environment) {
         this.propertyResolver = new RelaxedPropertyResolver(environment, "spring.security.auth.");
-    }
-
-    @SuppressWarnings("unused")
-    @EnableGlobalMethodSecurity(prePostEnabled = true, jsr250Enabled = true)
-    public static class GlobalSecurityConfiguration extends GlobalMethodSecurityConfiguration {
     }
 
     @Bean
@@ -65,6 +61,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Envi
                 .usernameParameter("j_username") // defaults to username
                 .passwordParameter("j_password") // defaults to password
             .defaultSuccessUrl("/#users")
+            .failureUrl("/#home")
+            .successHandler(successfulAuthHandler())
+            .failureHandler(unsuccessfulAuthHandler())
         .permitAll();
 
         http.logout()
@@ -92,7 +91,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Envi
                 .deleteCookies("JSESSIONID")
                 .permitAll();
 
-        http.addFilter(postAuthenticationFilter());
+        //http.addFilterBefore(postAuthenticationFilter(), BasicAuthenticationFilter.class);
     }
 
     @Override
@@ -105,19 +104,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter implements Envi
     }
 
     @Bean
-    public PostAuthFilter postAuthenticationFilter() {
-        final PostAuthFilter paf = new PostAuthFilter();
+    public SuccessfulAuthHandler successfulAuthHandler() {
+        return new SuccessfulAuthHandler();
+    }
 
-        AuthenticationManager authenticationManager = null;
-        try {
-            authenticationManager = this.authenticationManager();
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage());
-        }
-
-        paf.setAuthenticationManager(authenticationManager);
-
-        return paf;
+    @Bean
+    public UnsuccessfulAuthHandler unsuccessfulAuthHandler() {
+        return new UnsuccessfulAuthHandler();
     }
 
     @Override

@@ -7,20 +7,17 @@ auth.directive('auth', function($rootScope, $http, AuthServices) {
         templateUrl: "templates/login.html",
         link: function(scope) {
             scope.login = function() {
-                $('#login').modal('hide');
-
                 AuthServices.login(scope.login).success(function(data) {
                     // this callback will be called asynchronously when the response is available
                     scope.authenticated = true;
 
                     $rootScope.$broadcast('login', scope);
+                    $('#login').modal('hide');
                 }).error(function(data, status) {
                     // called asynchronously if an error occurs or the server returns response with an error status
                     if (status == 401 || status == 403) {
                         // unauthorized
-                        var message = data.substring(data.indexOf('Authentication Failed: '), data.lastIndexOf('</h1>'));
-
-                        alert(message);
+                        scope.authError = data.message;
                     } else {
                         console.log(data);
                     }
